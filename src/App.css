@@ -1,38 +1,222 @@
-.App {
-  text-align: center;
+:root {
+    --blue: #4166f5;
+    --red: #d11a2a;
+    --cyan: #6497b1;
+    --bg: #F0F2F5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background: var(--bg);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loader {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.App-link {
-  color: #61dafb;
+.loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-left-color: var(--blue);
+    border-top-color: var(--blue);
+    animation: spin 0.5s infinite linear;
+}    
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+    padding: 10px;
+    color: var(--red);
+    overflow-wrap: break-word;
+}
+
+input {
+    font-size: 16px;
+}
+
+button {
+    background: var(--blue);
+    height: 38px;
+    width: 100px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+}
+button:hover{
+    filter: brightness(0.9);
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container input {
+    outline: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--blue);
+    background: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-container button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.wrapper {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper a {
+    font-size: 16px;
+    color: var(--blue);
+    text-decoration: none;
+}
+.wrapper a:hover {
+    filter: brightness(0.9);
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+.header div {
+    font-weight: 900;
+    font-size: 30px;
+    user-select: none;
+}
+
+.header button {
+    background: none;
+    color: #000;
+    font-weight: 600;
+    width: auto;
+    height: auto;
+}
+
+.middle {
+    width: 650px;
+    margin: 0 auto;
+}
+
+.posts-container, .post-form {
+   width: 100%;
+}
+
+.post-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+label {
+    background: var(--cyan);
+    color: #fff;
+    width: 100px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 0;
+    margin: 10px 0 0 200px;
+}
+label:hover {
+    filter: brightness(0.9);
+}
+
+textarea {
+    padding: 10px;
+    width: 400px;
+    height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+.post-container {
+    margin-top: 15px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    padding: 0 20px;
+    overflow-wrap: break-word;
+}
+
+.message {
+    padding: 10px 20px 15px;
+    overflow-wrap: break-word;
+}
+
+img {
+    max-width: 650px;
+    align-self: center;
+}
+
+.btn-container {
+    margin: 15px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete {
+    background: var(--red);
+}
+
+span {
+    margin-left: 10px;
 }
